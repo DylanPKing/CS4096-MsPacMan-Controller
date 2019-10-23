@@ -10,6 +10,10 @@ public class KeyBoardInput extends KeyAdapter
 {
     private int key;
 
+    public KeyBoardInput() {
+
+    }
+
     public int getKey()
     {
     	return key;
