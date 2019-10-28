@@ -14,16 +14,7 @@ import java.util.Random;
 import pacman.controllers.Controller;
 import pacman.controllers.HumanController;
 import pacman.controllers.KeyBoardInput;
-import pacman.controllers.examples.AggressiveGhosts;
-import pacman.controllers.examples.Legacy;
-import pacman.controllers.examples.Legacy2TheReckoning;
-import pacman.controllers.examples.NearestPillPacMan;
-import pacman.controllers.examples.NearestPillPacManVS;
-import pacman.controllers.examples.RandomGhosts;
-import pacman.controllers.examples.RandomNonRevPacMan;
-import pacman.controllers.examples.RandomPacMan;
-import pacman.controllers.examples.StarterGhosts;
-import pacman.controllers.examples.StarterPacMan;
+import pacman.controllers.examples.*;
 import pacman.game.Game;
 import pacman.game.GameView;
 import static pacman.game.Constants.*;
@@ -51,11 +42,11 @@ public class Executor
 		Executor exec=new Executor();
 		
 		/* run a game in synchronous mode: game waits until controllers respond. */
-		/* System.out.println("STARTER PACMAN vs LEGACY2THERECKONING"); */
-		/* exec.runGame(new StarterPacMan(), new Legacy2TheReckoning(), visual,delay); */
+		/* System.out.println("ATTEMPT ONE vs STARTER "); */
+		 exec.runGame(new AttemptOne(), new RandomGhosts(), visual,delay);
 
-		System.out.println("HUMAN CONTROLLER vs LEGACY2THERECKONING");
-		exec.runGame(new HumanController(new KeyBoardInput()), new Legacy2TheReckoning(), visual, delay);
+//		System.out.println("HUMAN CONTROLLER vs LEGACY2THERECKONING");
+//		exec.runGame(new HumanController(new KeyBoardInput()), new Legacy2TheReckoning(), visual, delay);
 
 		/* run multiple games in batch mode - good for testing. */
 		
