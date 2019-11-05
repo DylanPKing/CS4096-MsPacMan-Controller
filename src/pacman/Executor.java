@@ -37,13 +37,13 @@ public class Executor
 	{
 		int delay=10;
 		boolean visual=true;
-		int numTrials=20;
+		int numTrials=1000;
 		
 		Executor exec=new Executor();
 		
 		/* run a game in synchronous mode: game waits until controllers respond. */
 		/* System.out.println("ATTEMPT ONE vs STARTER "); */
-		 exec.runGame(new AttemptOne(), new RandomGhosts(), visual,delay);
+//		 exec.runGame(new AttemptOne(), new StarterGhosts(), visual,delay);
 
 //		System.out.println("HUMAN CONTROLLER vs LEGACY2THERECKONING");
 //		exec.runGame(new HumanController(new KeyBoardInput()), new Legacy2TheReckoning(), visual, delay);
@@ -51,7 +51,7 @@ public class Executor
 		/* run multiple games in batch mode - good for testing. */
 		
 //		System.out.println("STARTER PACMAN vs LEGACY2THERECONING");
-//		exec.runExperiment(new StarterPacMan(), new Legacy2TheReckoning(),numTrials);
+		exec.runExperiment(new AttemptOne(), new StarterGhosts(),numTrials);
 //		System.out.println("RANDOM PACMAN vs LEGACY2THERECONING");
 //		exec.runExperiment(new RandomPacMan(), new Legacy2TheReckoning(),numTrials);
 //		System.out.println("NEAREST PILL PACMAN vs LEGACY2THERECONING");
