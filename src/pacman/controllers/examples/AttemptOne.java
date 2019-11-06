@@ -1,6 +1,7 @@
 package pacman.controllers.examples;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Random;
 
 import org.jetbrains.annotations.NotNull;
@@ -15,7 +16,7 @@ public class AttemptOne extends Controller<MOVE> {
 
     private static final int MIN_DISTANCE=20;	//if a ghost is this close, run away
 
-    public MOVE getMove(@NotNull Game game, long timeDue) {
+    public MOVE getMove(Game game, long timeDue) {
 
         int current=game.getPacmanCurrentNodeIndex();
         //get all active pills
@@ -38,11 +39,14 @@ public class AttemptOne extends Controller<MOVE> {
         int numOfGhostsClose = 0;
         int closestGhostDistance = Integer.MAX_VALUE;
         GHOST closestGhost = GHOST.BLINKY;
+        ArrayList<GHOST> nearGhosts = new ArrayList<GHOST>();
         for(GHOST ghost : GHOST.values()) {
             if (game.getGhostEdibleTime(ghost) == 0 && game.getGhostLairTime(ghost) == 0)
-                if (game.getShortestPathDistance(current, game.getGhostCurrentNodeIndex(ghost)) < MIN_DISTANCE)
+                if (game.getShortestPathDistance(current, game.getGhostCurrentNodeIndex(ghost)) < MIN_DISTANCE) {
                     //return game.getNextMoveAwayFromTarget(game.getPacmanCurrentNodeIndex(), game.getGhostCurrentNodeIndex(ghost), Constants.DM.PATH);
                     numOfGhostsClose++;
+
+                }
             if(game.getShortestPathDistance(game.getPacmanCurrentNodeIndex(), game.getGhostCurrentNodeIndex(ghost)) < closestGhostDistance) {
                 closestGhostDistance = game.getShortestPathDistance(game.getPacmanCurrentNodeIndex(), game.getGhostCurrentNodeIndex(ghost));
                 closestGhost = ghost;

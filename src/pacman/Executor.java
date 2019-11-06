@@ -43,7 +43,7 @@ public class Executor
 		
 		/* run a game in synchronous mode: game waits until controllers respond. */
 		/* System.out.println("ATTEMPT ONE vs STARTER "); */
-//		 exec.runGame(new AttemptOne(), new StarterGhosts(), visual,delay);
+		 exec.runGame(new AttemptOne(), new StarterGhosts(), visual,delay);
 
 //		System.out.println("HUMAN CONTROLLER vs LEGACY2THERECKONING");
 //		exec.runGame(new HumanController(new KeyBoardInput()), new Legacy2TheReckoning(), visual, delay);
